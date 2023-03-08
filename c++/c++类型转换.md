@@ -25,10 +25,10 @@ cast-name<type>(expression);
 
 其中，type 是转换的目标类型而 expression 是要转换的值。cast-name 是 static_cast 、 dynamic_cast 、const_cast 和 reinterpret_cast 中的一种。
 
-- **static_cast：**任何具有明确定义的类型转换，只要不包含底层 const ，都可以使用它。static_cast 的使用场景极其广泛，大多数时候它都可以发挥作用。
-- **dynamic_cast：**要求被转换值是指针或引用，对应的目标类型也是指针或引用，并且目标类型被限制必须是被转换值的父类或子类或与被转换值得类型相同。dynamic_cast 在运行时生效，如果转换指针失败，则返回0；如果转换引用失败，则抛出 bad_cast 异常。
-- **const_cast：**可以为被转换得值添加或去掉 const 限定符。必须注意得是，它只能改变运算对象的底层 const 。如果被转换的值本身不是常量，该转换是合法的；如果被转换的值本身就是常量，该转换会导致未定义的的后果。const_cast 主要用于函数重载的参数传递场景中，选择合适的重载函数。
-- **reinterpret_cast：**通常为运算对象的位模式提供较低层次上的重新解释。
+- static_cast：任何具有明确定义的类型转换，只要不包含底层 const ，都可以使用它。static_cast 的使用场景极其广泛，大多数时候它都可以发挥作用。
+- dynamic_cast：要求被转换值是指针或引用，对应的目标类型也是指针或引用，并且目标类型被限制必须是被转换值的父类或子类或与被转换值得类型相同。dynamic_cast 在运行时生效，如果转换指针失败，则返回0；如果转换引用失败，则抛出 bad_cast 异常。
+- const_cast：可以为被转换得值添加或去掉 const 限定符。必须注意得是，它只能改变运算对象的底层 const 。如果被转换的值本身不是常量，该转换是合法的；如果被转换的值本身就是常量，该转换会导致未定义的的后果。const_cast 主要用于函数重载的参数传递场景中，选择合适的重载函数。
+- reinterpret_cast：通常为运算对象的位模式提供较低层次上的重新解释。
 
 从概念上看，reinterpret_cast 的作用难以从字面上进行理解，接下来我们对它做更深入的解释。我在网上看到一篇 [文章](https://www.cnblogs.com/ider/archive/2011/07/30/cpp_cast_operator_part3.html) ，对 reinterpret_cast 的作用进行了详细的解释，我们在此基础上进行归纳总结。
 
